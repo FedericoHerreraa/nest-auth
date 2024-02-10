@@ -1,8 +1,8 @@
-import { IsEmail, IsString, MinLength } from "class-validator";
+import { IsString, MinLength } from "class-validator";
 import { Transform } from "class-transformer";
 
 export class LoginDto {
-    @IsEmail()
+    @IsString()
     email: string;
 
     @IsString()
