@@ -12,6 +12,7 @@ export class UsersService {
         const newUser = new this.userModel({ username, email, password });
         return newUser.save()
     }
+    
     async getAllUsers(): Promise<User[]> {
         return this.userModel.find().exec()
     }

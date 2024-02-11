@@ -40,6 +40,7 @@ export class AuthService {
 
         const token = await this.jwtService.signAsync(payload)
 
+        //return
         return {
             token,
             email
