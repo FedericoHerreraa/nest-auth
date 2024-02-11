@@ -1,5 +1,4 @@
 import { IsString, MinLength } from "class-validator";
-import { Transform } from "class-transformer";
 
 //comentario
 export class LoginDto {
