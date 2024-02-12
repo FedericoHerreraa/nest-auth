@@ -7,7 +7,7 @@ async function bootstrap() {
   app.enableCors({ 
     origin: 'https://nestauth-phi.vercel.app',
     credentials: true,
-    allowedHeaders: 'Authorization',
+    allowedHeaders: ['Authorization', 'Content-Type'],
     exposedHeaders: 'Authorization',
   })
   app.useGlobalPipes(new ValidationPipe());
