@@ -42,8 +42,8 @@ export class AuthService {
 
         return {
             token,
-            email
-        };
+            user
+        };  
     }
 
     getAllUsers() {
