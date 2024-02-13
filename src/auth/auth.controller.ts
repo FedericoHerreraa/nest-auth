@@ -26,11 +26,7 @@ export class AuthController {
 
     @Get('profile')
     @UseGuards(AuthGuard)
-    profile(@Request() req, @Res() res) {
-        res.header('Access-Control-Allow-Origin', 'https://nestauth-phi.vercel.app');
-        res.header('Access-Control-Allow-Methods', 'GET');
-        res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-        res.header('Access-Control-Allow-Credentials', 'true');
+    profile(@Request() req) {
         return req.user
     }
 }
