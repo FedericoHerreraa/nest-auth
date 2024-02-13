@@ -9,6 +9,7 @@ async function bootstrap() {
     credentials: true,
     allowedHeaders: ['Authorization', 'Content-Type'],
     exposedHeaders: 'Authorization',
+    methods: ['POST', 'PUT', 'DELETE', 'GET']
   })
   app.useGlobalPipes(new ValidationPipe());
   await app.listen(3000);
