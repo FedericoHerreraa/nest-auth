@@ -19,14 +19,17 @@ export class AuthGuard implements CanActivate {
       request.user = payload
 
     } catch (error) {
-      throw new UnauthorizedException()
+      throw new UnauthorizedException('token invalido o expirado')
     }
 
     return true;
   }
 
   private extractTokenFromHeader(request: Request): string | undefined {
-    const [type, token] =  request.headers.authorization?.split('%20') ?? [];
-    return type === 'Bearer' ? token : undefined
+    const authorizationHeader = request.headers.authorization;
+    if (!authorizationHeader || !authorizationHeader.startsWith('Bearer ')) {
+        return undefined;
+    }
+    return authorizationHeader.substring(7);
   }
 }
