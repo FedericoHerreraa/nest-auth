@@ -1,4 +1,4 @@
-import { IsString, MinLength } from "class-validator";
+import { IsString, MinLength, IsEmail } from "class-validator";
 import { Transform } from "class-transformer";
 
 
@@ -7,6 +7,7 @@ export class RegisterDto {
     username: string;
     
     @IsString()
+    @IsEmail()
     email: string;
 
     @IsString()
