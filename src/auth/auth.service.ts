@@ -46,6 +46,11 @@ export class AuthService {
         };  
     }
 
+    async profile(email: string) {
+        const user = await this.usersService.findOneByEmail(email)
+        return user
+    }
+
     getAllUsers() {
         return this.usersService.getAllUsers()
     }
