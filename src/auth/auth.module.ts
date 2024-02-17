@@ -6,7 +6,6 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { UsersService } from 'src/users/users.service';
 import { UsersModule } from 'src/users/users.module';
 import { JwtModule } from '@nestjs/jwt';
-import { jwtConstants } from './constants/jwt.constant';
 import { ConfigService, ConfigModule } from '@nestjs/config';
 
 
@@ -23,9 +22,6 @@ import { ConfigService, ConfigModule } from '@nestjs/config';
       }),
       inject: [ConfigService],
     })
-    // JwtModule.register({
-    //   secret: jwtConstants.secret,
-    // }),
   ],
   providers: [AuthService, UsersService],
   controllers: [AuthController],

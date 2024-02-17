@@ -14,6 +14,11 @@ export class AuthService {
     async register({ username, email, password }: RegisterDto) {
         try {
             const hashedPassword = await bcryptjs.hash(password, 10)
+            const user = await this.usersService.findOneByEmail(email)
+            if (user) {
+                throw new UnauthorizedException('El usuario ya existe')
+            }
+            
             return this.usersService.createUser({ 
                 username, 
                 email, 
